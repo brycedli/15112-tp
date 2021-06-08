@@ -1,0 +1,72 @@
+Project Proposal [15 pts]
+Write up a proposal file (in the file proposal.txt, or .docx, or .pdf) which should include the following components:
+
+Project Description [2.5 pts]: The name of the term project and a short description of what it will be.
+Name: Spotify Profiles
+
+Spotify Profiles lets users explore their favorite artists through their songs. 
+
+Competitive Analysis [2.5 pts]: A 1-2 paragraph analysis of similar projects you've seen online, and how your project will be similar or different to those.
+
+Additional Comments on User Experience: 
+I designed my method of finding songs the way it is right now because I feel that it will help out most users that behave similarly. For example, when I find an artist, I start with songs that I know first– which are typically the "top tracks" that spotify gives to an artist. That way, users are suggested starting points that are the most suitable for their tastes. This also addresses vast collection of music that they have to choose from without needing filters or anything similar like that. 
+
+I’ve seen projects online that aim to give a comprehensive look at artists, as well as helping them analyze their metrics. Other projects tend to display a wealth of information in relation to a certain artist, or attempt to predict what other artists are similar. My project is aimed toward music consumers that want to find hidden gems that they love from their favorite artist. This is always a favorite experience of mine: I like to look around an artist I love like Yo-Yo Ma, but he has so many songs that it’s hard to find songs that I like. And when I find great songs that I love, there’s no way to find songs like it. My app will be an experience of browsing music from a user’s favorite artists.
+
+Structural Plan [2.5 pts]: A structural plan for how the finalized project will be organized in different functions, files and/or objects.
+
+My project will utilize MVC with a heavy emphasis on object oriented programming. There are multiple functions with sectioned off code: for example, one is dedicated to getting authentication tokens, one is dedicated to finding an artist, and one is dedicated to analyzing songs from the aforementioned artist. It will likely be in one file, with permanent file data being saved in a file in the same folder as the main file. 
+EDIT:
+Not too heavy emphasis on OOP (not everything that can be made into OOP is made into OOP for several reasons)
+Algorithmic Plan [2.5 pts]: A detailed algorithmic plan for how you will approach the trickiest part of the project. Be sure to clearly highlight which part(s) of your project are algorithmically most complex, and include details of the algorithm(s) you are using in those cases.
+
+Most complex parts:
+Getting all data for artist
+Preparing data for TSNE evaluation
+K-means clustering
+Audio streaming
+
+For part 1, I searched for an artist name from a set of keywords, which a user could then select a certain search result. Then, I would take that artist’s information and get all of their albums. From that, I would get all the songs from their albums, create objects based off their metadata, put it into a large dictionary, and loop through the songs in batches to get their attributes for performance. 
+
+For part 2, I used numPy and a custom loop to filter out relevant data from song objects to create a numPy array. Then, I scaled the data for statistical normalization and input it into the TSNE function and prepared the data to go into corresponding song objects.  
+
+For part 3, I implemented k-means clustering to this algorithm:
+
+Pick a point as a centroid
+Assign points to said centroid
+Create a new centroid based on the average/center of assigned points/clusters
+Recursively do this until the end condition.
+EDIT: I changed this to be a stability of 10 iterations, as this would keep computation to good performance and my clustering was good enough to be usable.
+
+For part 4, I used pygame to load and play audio. The song would be written to a local file and played from there. 
+
+I will create an object for each cluster, to aid simplicity when computing user navigation. 
+EDIT: I did not create an object for each cluster– rather, I created a dictionary. This was fast, and it was also simple.
+
+Timeline Plan [2.5 pts]: A timeline for when you intend to complete the major features of the project.
+
+TP0 Getting songs and TSNE
+TP1 Getting songs using OOP and heavy optimization
+TP1 Navigation and search
+TP2 K-means clustering
+TP2 Recommendations/Auto-walkthrough
+TP2 Audio playing/steaming if time allows
+TP3 Graphical fidelity
+TP3 Improvements to recommendation (points out interesting data about song)
+
+Version Control Plan [1.5 pts]: A short description and image demonstrating how you are using version control to back up your code. Notes:
+You must back up your code somehow!!!
+Your backups must not be on your computer (ideally, store them in the cloud)
+
+Every couple of hours, I will zip up the project and put it in a google drive folder labeled with the date and time. 
+
+Module List [1 pts]: A list of all external modules/hardware/technologies you are planning to use in your project. Note that any such modules must be approved by a tech demo. If you are not planning to use any additional modules, that's okay, just say so!
+
+Scikit 
+Numpy
+Requests
+
+EDIT:
+Pygame
+Copy
+Random
